@@ -29,49 +29,57 @@
             rel="stylesheet"
             type="text/css"
             href="css/components/tabs.css"
+            <link rel="stylesheet" type="text/css" href="css/components/topbar.css" />
         />
         <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
         <script src="https://unpkg.com/vue-router@4.0.14/dist/vue-router.global.prod.js"></script>
         <script type="module" src="js/main.js"></script>
     </head>
     <body id="app">
-        <header :class="{ dark: store.dark }">
-            <div class="logo">
-                <h2>Graceful Society</h2>
-                <p>v1.0.1</p>
-            </div>
-            <nav class="nav">
-            <router-link class="nav__tab" to="/" exact>
-                <span class="type-label-lg">Home</span>
-                </router-link>
-                <router-link class="nav__tab" to="/list">
-                <span class="type-label-lg">List</span>
-                </router-link>
-                <router-link class="nav__tab" to="/leaderboard">
-                    <span class="type-label-lg">Leaderboard</span>
-                </router-link>
-                <router-link class="nav__tab" to="/roulette">
-                    <span class="type-label-lg">Roulette</span>
-                </router-link>
-                <div class="nav__actions">
-                    <button
-                        class="nav__icon"
-                        @click.prevent="store.toggleDark()"
-                    >
-                        <img
-                            :src="store.dark ? 'assets/light.svg' : 'assets/dark.svg'"
-                            alt=""
-                        />
-                    </button>
-                    <a class="nav__icon" href="https://discord.gg/BxWZA2MPBf">
-                        <img src="assets/discord.svg" alt="Discord Logo" />
-                    </a>
-                    <router-link class="nav__cta type-label-lg" to="/submit">
-                        Submit Record
-                    </router-link>
-                </div>
-            </nav>
-        </header>
+<header class="topbar" :class="{ dark: store.dark }">
+    <div class="topbar__inner">
+        <router-link class="topbar__brand" to="/">
+            <img class="topbar__logo" src="list_icon.png" alt="" />
+            <span class="topbar__name">Graceful Society</span>
+            <span class="topbar__badge">v1.0.0</span>
+        </router-link>
+
+        <nav class="topbar__nav">
+            <router-link class="topbar__link" to="/">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>
+                Home
+            </router-link>
+            <router-link class="topbar__link" to="/list">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+                List
+            </router-link>
+            <router-link class="topbar__link" to="/leaderboard">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20v-8M12 20V5M19 20v-12"/></svg>
+                Leaderboard
+            </router-link>
+            <router-link class="topbar__link" to="/roulette">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 8h.01M16 8h.01M8 16h.01M16 16h.01M12 12h.01"/></svg>
+                Roulette
+            </router-link>
+        </nav>
+
+        <div class="topbar__actions">
+            <button class="topbar__icon" @click.prevent="store.toggleDark()">
+                <img
+                    :src="store.dark ? 'assets/light.svg' : 'assets/dark.svg'"
+                    alt=""
+                />
+            </button>
+            <a class="topbar__icon" href="https://discord.gg/BxWZA2MPBf">
+                <img src="assets/discord.svg" alt="Discord Logo" />
+            </a>
+            <router-link class="topbar__cta" to="/submit">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                Submit Record
+            </router-link>
+        </div>
+    </div>
+</header>
         <router-view :class="{ dark: store.dark }"></router-view>
     </body>
 </html>
