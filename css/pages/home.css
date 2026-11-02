@@ -126,3 +126,8 @@
     background: #2563eb;
     border-color: #2563eb;
 }
+header.topbar,
+.page-home,
+.page-submit {
+    font-family: 'Lexend Deca', sans-serif;
+}
