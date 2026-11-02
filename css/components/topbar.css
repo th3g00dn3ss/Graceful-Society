@@ -1,0 +1,114 @@
+header.topbar {
+    display: block !important;
+    height: 80px;
+    padding: 0 !important;
+    background: #07080c !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: none !important;
+    box-sizing: border-box;
+}
+
+.topbar__inner {
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
+    max-width: 1540px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+}
+
+.topbar__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #fff;
+    text-decoration: none;
+}
+.topbar__logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.topbar__name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+.topbar__badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4f8dff;
+    padding: 0.15rem 0.5rem;
+    border: 1px solid rgba(79, 141, 255, 0.4);
+    background: rgba(79, 141, 255, 0.1);
+    border-radius: 6px;
+}
+
+.topbar__nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.topbar__link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.15s, background 0.15s;
+}
+.topbar__link svg {
+    color: #4f8dff;
+}
+.topbar__link:hover {
+    color: #fff;
+}
+.topbar__link.router-link-exact-active {
+    color: #fff;
+    background: rgba(79, 141, 255, 0.12);
+}
+
+.topbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto;
+}
+.topbar__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+}
+.topbar__icon:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+.topbar__icon img {
+    width: 24px;
+    height: 24px;
+}
+.topbar__cta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1rem;
+    border-radius: 8px;
+    background: #1d5cff;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+}
+.topbar__cta:hover {
+    background: #3b72ff;
+}
