@@ -71,7 +71,7 @@ export default {
         <div class="lv__stats">
             <div class="lv__stat">
                 <span class="lv__label">Points</span>
-                <span class="lv__value lv__value--accent">{{ score(selected + 1, 100, level.percentToQualify) }}</span>
+                <span class="lv__value lv__value--accent">{{ Math.round(score(selected + 1, 100, level.percentToQualify)) }}</span>
             </div>
             <div class="lv__stat">
                 <span class="lv__label">Level ID</span>
