@@ -430,3 +430,99 @@
 .page-list.records-hidden > .meta-container {
     padding-inline: 0;
 }
+.ll {
+    background: #0a0b0f;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: clip;
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+.ll__search {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding: 0.75rem;
+    background: #0a0b0f;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.ll__field {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.5);
+}
+.ll__field input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+}
+.ll__field input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.ll__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.ll__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+    column-gap: 0.75rem;
+    row-gap: 0.15rem;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    text-align: left;
+    background: transparent;
+    border: 0;
+    border-left: 3px solid transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0;
+    color: #fff;
+    font-family: inherit;
+    cursor: pointer;
+}
+.ll__item:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+.ll__item.active {
+    background: rgba(37, 99, 235, 0.14);
+    border-left-color: #2563eb;
+}
+.ll__rank {
+    color: #4f8dff;
+    font-weight: 700;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+.ll__name {
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+.ll__by {
+    grid-column: 1 / -1;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+.ll__item.error .ll__name {
+    color: #ff6b6b;
+    text-decoration: line-through;
+}
+.ll__item.error {
+    cursor: not-allowed;
+}
+.ll__none {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+}
