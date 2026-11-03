@@ -419,3 +419,14 @@
     width: auto !important;
     min-width: max-content !important;
 }
+/* Seviye kartı sabit genişlikte kalsın ve ortalansın */
+.page-list .level-container .lv {
+    width: 100%;
+    max-width: 56rem;
+    margin-inline: auto;
+}
+
+/* Panel kapalıyken sağdaki boşluk da sıfırlansın */
+.page-list.records-hidden > .meta-container {
+    padding-inline: 0;
+}
