@@ -334,3 +334,8 @@
         grid-template-columns: 1fr;
     }
 }
+.lb__head {
+    background: transparent !important;
+    box-shadow: none !important;
+    height: auto !important;
+}
