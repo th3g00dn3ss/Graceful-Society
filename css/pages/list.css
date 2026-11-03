@@ -526,3 +526,50 @@
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.4);
 }
+/* Arama satırı + kapatma düğmesi */
+.ll__search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.ll__field {
+    flex: 1;
+    min-width: 0;
+}
+.ll__collapse,
+.ll__open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: #0a0b0f;
+    color: #fff;
+    cursor: pointer;
+}
+.ll__collapse:hover,
+.ll__open:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+.ll__open {
+    position: fixed;
+    top: 96px;
+    left: 24px;
+    z-index: 20;
+}
+
+/* Liste kapanınca sola doğru daralır */
+.page-list > .list-container {
+    transition: flex-basis 0.3s ease;
+}
+.page-list.list-hidden > .list-container {
+    flex-basis: 0;
+    padding-inline: 0;
+    overflow: hidden;
+}
+.list-container .ll {
+    min-width: 300px;
+}
