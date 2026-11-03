@@ -405,3 +405,17 @@
 .rp__credit a {
     color: #7fb0ff;
 }
+.rp,
+.rp *,
+.rp__credit {
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: normal !important;
+    max-width: none !important;
+}
+
+.rp__toggle {
+    white-space: nowrap !important;
+    width: auto !important;
+    min-width: max-content !important;
+}
