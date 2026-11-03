@@ -346,3 +346,62 @@
     color: inherit;
     text-decoration: underline;
 }
+/* Üç sütunlu düzen: sağ panel kapanınca orta sütun genişler */
+.page-list {
+    display: flex !important;
+    height: calc(100vh - 80px);
+    overflow: hidden;
+}
+.page-list > .list-container {
+    flex: 0 0 24%;
+    min-width: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+.page-list > .level-container {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+.page-list > .meta-container {
+    flex: 0 0 25%;
+    min-width: 0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: flex-basis 0.3s ease;
+}
+.page-list.records-hidden > .meta-container {
+    flex-basis: 0;
+    overflow-y: hidden;
+}
+
+/* Panel içeriği daralırken sıkışmasın, sağa kayarak kapansın */
+.meta-container .rp {
+    min-width: 380px;
+    padding-top: 4rem;
+}
+
+/* Düğme ve kredi artık sayfaya sabit */
+.rp__toggle {
+    position: fixed;
+    top: 96px;
+    right: 24px;
+    z-index: 20;
+}
+.rp__credit {
+    position: fixed;
+    bottom: 0.75rem;
+    right: 24px;
+    z-index: 20;
+    margin: 0;
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    background: rgba(10, 11, 15, 0.85);
+    color: #fff;
+    opacity: 1;
+}
+.rp__credit a {
+    color: #7fb0ff;
+}
