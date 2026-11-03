@@ -122,6 +122,7 @@ export default {
         loading: true,
         selected: 0,
         errors: [],
+        showRecords: true,
         roleIconMap,
         store
     }),
