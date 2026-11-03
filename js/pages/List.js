@@ -75,46 +75,26 @@ export default {
     </div>
 </div>
 
-<div class="meta-container">
-    <div class="rp">
-        <div class="errors" v-show="errors.length > 0">
-            <p class="error" v-for="error of errors">{{ error }}</p>
+        <div class="meta-container">
+            <div class="rp">
+                <div class="errors" v-show="errors.length > 0">
+                    <p class="error" v-for="error of errors">{{ error }}</p>
+                </div>
+
+                <div class="rp__panel" v-if="showRecords && level">
+                    ...
+                </div>
+            </div>
         </div>
 
         <button class="rp__toggle" @click="showRecords = !showRecords">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-            {{ showRecords ? 'Hide Records' : 'Show Records' }}
+            ...
         </button>
-
-        <div class="rp__panel" v-if="showRecords && level">
-            <div class="rp__head">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-                <span class="rp__title">Records</span>
-                <span class="rp__count">({{ level.records.length }})</span>
-            </div>
-
-            <p class="rp__req" v-if="selected + 1 <= 75"><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
-            <p class="rp__req" v-else-if="selected + 1 <= 150"><strong>100%</strong> or better to qualify</p>
-            <p class="rp__req" v-else>This level does not accept new records.</p>
-
-            <ul class="rp__list" v-if="level.records.length">
-                <li class="rp__item" v-for="record in level.records">
-                    <div class="rp__who">
-                        <a :href="record.link" target="_blank">{{ record.user }}</a>
-                        <small>{{ record.hz ? record.hz + 'Hz' : '' }}{{ record.mobile ? ' · Mobile' : '' }}</small>
-                    </div>
-                    <span class="rp__percent">{{ record.percent }}%</span>
-                </li>
-            </ul>
-            <p class="rp__empty" v-else>No records yet</p>
-        </div>
 
         <p class="rp__credit">
             Website layout made by <a href="https://tsl.pages.dev/" target="_blank">TheShittyList</a>
         </p>
-    </div>
-</div>
-        </main>
+    </main>
     `,
     data: () => ({
         list: [],
