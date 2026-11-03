@@ -22,20 +22,30 @@ export default {
         </main>
         <main v-else class="page-list" :class="{ 'records-hidden': !showRecords }">
             <div class="list-container">
-                <table class="list" v-if="list">
-                    <tr v-for="([level, err], i) in list">
-                        <td class="rank">
-                            <p v-if="i + 1 <= 150" class="type-label-lg">#{{ i + 1 }}</p>
-                            <p v-else class="type-label-lg">Legacy</p>
-                        </td>
-                        <td class="level" :class="{ 'active': selected == i, 'error': !level }">
-                            <button @click="selected = i">
-                                <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+    <div class="ll" v-if="list">
+        <div class="ll__search">
+            <label class="ll__field">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" v-model="search" placeholder="Search levels..." />
+            </label>
+        </div>
+        <ul class="ll__items">
+            <li v-for="item in filteredList" :key="item.i">
+                <button
+                    class="ll__item"
+                    :class="{ active: selected == item.i, error: !item.level }"
+                    @click="selected = item.i"
+                >
+                    <span class="ll__rank" v-if="item.i + 1 <= 150">#{{ item.i + 1 }}</span>
+                    <span class="ll__rank" v-else>Legacy</span>
+                    <span class="ll__name">{{ item.level ? item.level.name : 'Error (' + item.err + '.json)' }}</span>
+                    <span class="ll__by" v-if="item.level">by {{ (item.level.creators || [item.level.author]).join(', ') }}</span>
+                </button>
+            </li>
+            <li class="ll__none" v-if="!filteredList.length">No levels found</li>
+        </ul>
+    </div>
+</div>
             <div class="level-container">
     <div class="lv" v-if="level">
         <div class="lv__header">
@@ -122,6 +132,7 @@ export default {
         loading: true,
         selected: 0,
         errors: [],
+        search: '',
         showRecords: true,
         roleIconMap,
         store
@@ -141,6 +152,19 @@ export default {
                     : this.level.verification
             );
         },
+        filteredList() {
+    const q = this.search.trim().toLowerCase();
+    return (this.list || [])
+        .map(([level, err], i) => ({ level, err, i }))
+        .filter(({ level }) => {
+            if (!q) return true;
+            if (!level) return false;
+            const creators = (level.creators || []).join(' ');
+            return (level.name + ' ' + creators + ' ' + (level.author || ''))
+                .toLowerCase()
+                .includes(q);
+        });
+},
     },
     async mounted() {
         // Hide loading spinner
