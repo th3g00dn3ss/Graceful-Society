@@ -37,49 +37,66 @@ export default {
                 </table>
             </div>
             <div class="level-container">
-                <div class="level" v-if="level">
-                    <h1>{{ level.name }}</h1>
-                    <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
-                    <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
-                    <ul class="stats">
-                        <li>
-                            <div class="type-title-sm">Points when completed</div>
-                            <p>{{ score(selected + 1, 100, level.percentToQualify) }}</p>
-                        </li>
-                        <li>
-                            <div class="type-title-sm">ID</div>
-                            <p>{{ level.id }}</p>
-                        </li>
-                        <li>
-                            <div class="type-title-sm">Password</div>
-                            <p>{{ level.password || 'Free to Copy' }}</p>
-                        </li>
-                    </ul>
-                    <h2>Records</h2>
-                    <p v-if="selected + 1 <= 75"><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
-                    <p v-else-if="selected +1 <= 150"><strong>100%</strong> or better to qualify</p>
-                    <p v-else>This level does not accept new records.</p>
-                    <table class="records">
-                        <tr v-for="record in level.records" class="record">
-                            <td class="percent">
-                                <p>{{ record.percent }}%</p>
-                            </td>
-                            <td class="user">
-                                <a :href="record.link" target="_blank" class="type-label-lg">{{ record.user }}</a>
-                            </td>
-                            <td class="mobile">
-                                <img v-if="record.mobile" :src="\`assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">
-                            </td>
-                            <td class="hz">
-                                <p>{{ record.hz }}Hz</p>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div v-else class="level" style="height: 100%; justify-content: center; align-items: center;">
-                    <p>(ノಠ益ಠ)ノ彡┻━┻</p>
-                </div>
+    <div class="lv" v-if="level">
+        <div class="lv__header">
+            <h1 class="lv__title">
+                <span class="lv__rank" v-if="selected + 1 <= 150">#{{ selected + 1 }}</span>
+                <span class="lv__rank" v-else>Legacy</span>
+                {{ level.name }}
+            </h1>
+            <div class="lv__meta">
+                <span><b>Creator:</b> {{ (level.creators || []).join(', ') }}</span>
+                <span><b>Verifier:</b> {{ level.verifier }}</span>
+                <span><b>Publisher:</b> {{ level.author }}</span>
             </div>
+        </div>
+
+        <div class="lv__video">
+            <iframe class="video" id="videoframe" :src="video" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="lv__stats">
+            <div class="lv__stat">
+                <span class="lv__label">Points</span>
+                <span class="lv__value lv__value--accent">{{ score(selected + 1, 100, level.percentToQualify) }}</span>
+            </div>
+            <div class="lv__stat">
+                <span class="lv__label">Level ID</span>
+                <span class="lv__value">{{ level.id }}</span>
+            </div>
+            <div class="lv__stat lv__stat--wide">
+                <span class="lv__label">Password</span>
+                <span class="lv__value">{{ level.password || 'Free to Copy' }}</span>
+            </div>
+        </div>
+
+        <div class="lv__records">
+            <h2>Records</h2>
+            <p v-if="selected + 1 <= 75"><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
+            <p v-else-if="selected +1 <= 150"><strong>100%</strong> or better to qualify</p>
+            <p v-else>This level does not accept new records.</p>
+            <table class="records">
+                <tr v-for="record in level.records" class="record">
+                    <td class="percent">
+                        <p>{{ record.percent }}%</p>
+                    </td>
+                    <td class="user">
+                        <a :href="record.link" target="_blank" class="type-label-lg">{{ record.user }}</a>
+                    </td>
+                    <td class="mobile">
+                        <img v-if="record.mobile" :src="\`assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">
+                    </td>
+                    <td class="hz">
+                        <p>{{ record.hz }}Hz</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div v-else class="level" style="height: 100%; justify-content: center; align-items: center;">
+        <p>(ノಠ益ಠ)ノ彡┻━┻</p>
+    </div>
+</div>
             <div class="meta-container">
                 <div class="meta">
                     <div class="errors" v-show="errors.length > 0">
