@@ -69,79 +69,51 @@ export default {
                 <span class="lv__value">{{ level.password || 'Free to Copy' }}</span>
             </div>
         </div>
-
-        <div class="lv__records">
-            <h2>Records</h2>
-            <p v-if="selected + 1 <= 75"><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
-            <p v-else-if="selected +1 <= 150"><strong>100%</strong> or better to qualify</p>
-            <p v-else>This level does not accept new records.</p>
-            <table class="records">
-                <tr v-for="record in level.records" class="record">
-                    <td class="percent">
-                        <p>{{ record.percent }}%</p>
-                    </td>
-                    <td class="user">
-                        <a :href="record.link" target="_blank" class="type-label-lg">{{ record.user }}</a>
-                    </td>
-                    <td class="mobile">
-                        <img v-if="record.mobile" :src="\`assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">
-                    </td>
-                    <td class="hz">
-                        <p>{{ record.hz }}Hz</p>
-                    </td>
-                </tr>
-            </table>
-        </div>
     </div>
     <div v-else class="level" style="height: 100%; justify-content: center; align-items: center;">
         <p>(ノಠ益ಠ)ノ彡┻━┻</p>
     </div>
 </div>
-            <div class="meta-container">
-                <div class="meta">
-                    <div class="errors" v-show="errors.length > 0">
-                        <p class="error" v-for="error of errors">{{ error }}</p>
-                    </div>
-                    <div class="og">
-                        <p class="type-label-md">Website layout made by <a href="https://tsl.pages.dev/" target="_blank">TheShittyList</a></p>
-                    </div>
-                    <template v-if="editors">
-                        <h3>List Editors</h3>
-                        <ol class="editors">
-                            <li v-for="editor in editors">
-                                <img :src="\`assets/\${roleIconMap[editor.role]}\${store.dark ? '-dark' : ''}.svg\`" :alt="editor.role">
-                                <a v-if="editor.link" class="type-label-lg link" target="_blank" :href="editor.link">{{ editor.name }}</a>
-                                <p v-else>{{ editor.name }}</p>
-                            </li>
-                        </ol>
-                    </template>
-                    <h3>Submission Requirements</h3>
-                    <p>
-                        Achieved the record without using hacks (however, FPS bypass is allowed, up to 360fps)
-                    </p>
-                    <p>
-                        Achieved the record on the level that is listed on the site - please check the level ID before you submit a record
-                    </p>
-                    <p>
-                        Have either source audio or clicks/taps in the video. Edited audio only does not count
-                    </p>
-                    <p>
-                        The recording must have a previous attempt and entire death animation shown before the completion, unless the completion is on the first attempt. Everyplay records are exempt from this
-                    </p>
-                    <p>
-                        The recording must also show the player hit the endwall, or the completion will be invalidated.
-                    </p>
-                    <p>
-                        Do not use secret routes or bug routes
-                    </p>
-                    <p>
-                        Do not use easy modes, only a record of the unmodified level qualifies
-                    </p>
-                    <p>
-                        Once a level falls onto the Legacy List, we accept records for it for 24 hours after it falls off, then afterwards we never accept records for said level
-                    </p>
-                </div>
+
+<div class="meta-container">
+    <div class="rp">
+        <div class="errors" v-show="errors.length > 0">
+            <p class="error" v-for="error of errors">{{ error }}</p>
+        </div>
+
+        <button class="rp__toggle" @click="showRecords = !showRecords">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+            {{ showRecords ? 'Hide Records' : 'Show Records' }}
+        </button>
+
+        <div class="rp__panel" v-if="showRecords && level">
+            <div class="rp__head">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                <span class="rp__title">Records</span>
+                <span class="rp__count">({{ level.records.length }})</span>
             </div>
+
+            <p class="rp__req" v-if="selected + 1 <= 75"><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
+            <p class="rp__req" v-else-if="selected + 1 <= 150"><strong>100%</strong> or better to qualify</p>
+            <p class="rp__req" v-else>This level does not accept new records.</p>
+
+            <ul class="rp__list" v-if="level.records.length">
+                <li class="rp__item" v-for="record in level.records">
+                    <div class="rp__who">
+                        <a :href="record.link" target="_blank">{{ record.user }}</a>
+                        <small>{{ record.hz ? record.hz + 'Hz' : '' }}{{ record.mobile ? ' · Mobile' : '' }}</small>
+                    </div>
+                    <span class="rp__percent">{{ record.percent }}%</span>
+                </li>
+            </ul>
+            <p class="rp__empty" v-else>No records yet</p>
+        </div>
+
+        <p class="rp__credit">
+            Website layout made by <a href="https://tsl.pages.dev/" target="_blank">TheShittyList</a>
+        </p>
+    </div>
+</div>
         </main>
     `,
     data: () => ({
