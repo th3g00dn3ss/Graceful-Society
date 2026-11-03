@@ -141,8 +141,8 @@ export default {
     },
     methods: {
         fmt(n) {
-            return Number(n).toFixed(2);
-        },
+    return Math.round(Number(n));
+},
         rankClass(i) {
             if (i === 0) return 'is-gold';
             if (i === 1) return 'is-silver';
