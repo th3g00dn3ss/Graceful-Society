@@ -229,3 +229,120 @@
 .lv__records a {
     color: #4f8dff;
 }
+.lv__stats {
+    border-radius: 0 0 12px 12px;
+}
+
+.meta-container .rp {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+.rp__toggle {
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1rem;
+    border: 1px solid rgba(79, 141, 255, 0.5);
+    border-radius: 8px;
+    background: rgba(29, 92, 255, 0.18);
+    color: #7fb0ff;
+    font-weight: 700;
+    cursor: pointer;
+}
+.rp__toggle svg {
+    color: #f5b82e;
+}
+.rp__toggle:hover {
+    background: rgba(29, 92, 255, 0.3);
+}
+
+.rp__panel {
+    min-height: 300px;
+    padding: 1rem 1.25rem;
+    background: #0a0b0f;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #fff;
+}
+.rp__head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.rp__head svg {
+    color: #f5b82e;
+}
+.rp__title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.rp__count {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    color: rgba(255, 255, 255, 0.5);
+}
+.rp__req {
+    margin: 0.75rem 0 0;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.rp__list {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+}
+.rp__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.rp__who {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+.rp__who a {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+}
+.rp__who a:hover {
+    color: #4f8dff;
+}
+.rp__who small {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+.rp__percent {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-weight: 700;
+    color: #4f8dff;
+}
+.rp__empty {
+    margin: 2rem 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.rp__credit {
+    margin: 0;
+    font-size: 0.75rem;
+    opacity: 0.6;
+}
+.rp__credit a {
+    color: inherit;
+    text-decoration: underline;
+}
