@@ -3,5 +3,6 @@
     { "role": "admin", "name": "GRACEEE", "link": "https://www.youtube.com/@GRACEEE-f9y"},
     { "role": "helper", "name": "GRACEEE", "link": "https://www.youtube.com/@GRACEEE-f9y"},
     { "role": "trial", "name": "GRACEEE", "link": "https://www.youtube.com/@GRACEEE-f9y"},
-    { "role": "dev", "name": "GRACEEE", "link": "https://www.youtube.com/@GRACEEE-f9y"}
+    { "role": "dev", "name": "GRACEEE", "link": "https://www.youtube.com/@GRACEEE-f9y"},
+    { "role": "dev", "name": "Claude", "link": "https://www.youtube.com/@claude"}
 ]
