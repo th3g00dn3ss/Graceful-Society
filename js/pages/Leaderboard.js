@@ -30,7 +30,7 @@ export default {
             <section class="lb__main" v-if="entry">
                 <p class="lb__error" v-if="errs.length">Failed to load levels: {{ errs.join(', ') }}</p>
 
-                <header class="lb__head">
+                <div class="lb__head">
                     <h1>
                         <span class="lb__bigrank" :class="rankClass(selected)">#{{ selected + 1 }}</span>
                         {{ entry.user }}
@@ -49,7 +49,7 @@ export default {
                             <span class="lb__num">{{ entry.verified.length }}</span>
                         </div>
                     </div>
-                </header>
+                </div>
 
                 <div class="lb__cols">
                     <div class="lb__col">
