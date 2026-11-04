@@ -1,0 +1,194 @@
+.sub {
+    display: block;
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    box-sizing: border-box;
+    padding: 2rem 1rem 4rem;
+    background: #0b0d12;
+    color: #fff;
+    color-scheme: dark;
+    font-family: 'Lexend Deca', sans-serif;
+}
+.sub__inner {
+    max-width: 760px;
+    margin: 0 auto;
+}
+.sub__title {
+    margin: 0;
+    font-size: 2rem;
+}
+.sub__subtitle {
+    margin: 0.35rem 0 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.sub__banner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid rgba(79, 141, 255, 0.3);
+    border-radius: 10px;
+    background: rgba(37, 99, 235, 0.1);
+    font-size: 0.9rem;
+}
+.sub__banner svg {
+    flex-shrink: 0;
+    color: #4f8dff;
+}
+.sub__banner span {
+    flex: 1;
+}
+.sub__banner strong {
+    color: #4f8dff;
+    text-decoration: underline;
+}
+.sub__link {
+    border: 0;
+    background: transparent;
+    color: #4f8dff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+.sub__rules {
+    margin: 1rem 0 0;
+    padding: 1rem 1.25rem 1rem 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    background: #0a0b0f;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+.sub__rules li {
+    margin-bottom: 0.6rem;
+}
+.sub__rules li:last-child {
+    margin-bottom: 0;
+}
+
+.sub__card {
+    margin-top: 1.25rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    background: #0a0b0f;
+}
+.sub__field {
+    margin-bottom: 1.1rem;
+}
+.sub__labelrow {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.sub__label {
+    display: block;
+    margin-bottom: 0.45rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+}
+.sub__hint {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #f5a524;
+}
+.sub__count {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+.sub__input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: #07080b;
+    color: #fff;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.88rem;
+    outline: 0;
+}
+.sub__input:focus {
+    border-color: #4f8dff;
+}
+.sub__input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+textarea.sub__input {
+    min-height: 5.5rem;
+    resize: vertical;
+}
+.sub__check {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.1rem;
+    font-size: 0.88rem;
+    cursor: pointer;
+}
+.sub__check input {
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: #2563eb;
+}
+
+.sub__alert {
+    margin: 1rem 0 0;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.88rem;
+}
+.sub__alert--error {
+    border: 1px solid rgba(255, 107, 107, 0.35);
+    background: rgba(255, 107, 107, 0.12);
+    color: #ff9a9a;
+}
+.sub__submit {
+    display: block;
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.85rem 1rem;
+    border: 0;
+    border-radius: 8px;
+    background: #1d5cff;
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+.sub__submit:hover:not(:disabled) {
+    background: #3b72ff;
+}
+.sub__submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.sub__done {
+    text-align: center;
+}
+.sub__done h2 {
+    margin: 0 0 0.5rem;
+}
+.sub__done p {
+    margin: 0 0 1.25rem;
+    color: rgba(255, 255, 255, 0.65);
+}
+.sub__hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
