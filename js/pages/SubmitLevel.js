@@ -1,20 +1,20 @@
 import template from './submit-level-template.js';
 
 // İkinci Google Form'un gönderim adresi: viewform yerine formResponse
-// Örnek: 'https://docs.google.com/forms/d/e/XXXXXXXX/formResponse'
-const LEVEL_FORM_ACTION = '';
+const LEVEL_FORM_ACTION =
+    'https://docs.google.com/forms/d/e/1FAIpQLSfgucbyNwOarivbpgXThs-E_WITXAdy068my-s0wHS-wA1epQ/formResponse';
 
-// Her sorunun Google Form'daki kodu, örnek: 'entry.1234567890'
+// Her sorunun Google Form'daki kodu
 const LEVEL_ENTRY = {
-    username: '', // Username
-    name: '', // Level name
-    id: '', // Level ID
-    creators: '', // Creator(s)
-    verifier: '', // Verifier
-    verification: '', // Verification video
-    publisher: '', // Publisher (isteğe bağlı)
-    password: '', // Password (isteğe bağlı)
-    notes: '', // Notes (isteğe bağlı)
+    username: 'entry.1249628165', // Username
+    name: 'entry.1684235309', // Level name
+    id: 'entry.2088299436', // Level ID
+    creators: 'entry.306165023', // Creator(s)
+    verifier: 'entry.1605376451', // Verifier
+    verification: 'entry.1639808627', // Verification video
+    publisher: 'entry.1922457121', // Publisher (isteğe bağlı)
+    password: 'entry.217133478', // Password (isteğe bağlı)
+    notes: 'entry.157350279', // Notes (isteğe bağlı)
 };
 const LEVEL_REQUIRED = ['username', 'name', 'id', 'creators', 'verifier', 'verification'];
 
