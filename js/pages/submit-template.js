@@ -3,7 +3,8 @@ export default `
         <div class="sub__inner">
             <h1 class="sub__title">Submit Record</h1>
             <p class="sub__subtitle">Submit your level completion or progress for review by list moderators.</p>
-                        <div class="sub__tabs">
+
+            <div class="sub__tabs">
                 <router-link class="sub__tab" to="/submit">Submit Record</router-link>
                 <router-link class="sub__tab" to="/submit-level">Submit Level</router-link>
             </div>
