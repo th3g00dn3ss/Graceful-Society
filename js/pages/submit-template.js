@@ -3,6 +3,10 @@ export default `
         <div class="sub__inner">
             <h1 class="sub__title">Submit Record</h1>
             <p class="sub__subtitle">Submit your level completion or progress for review by list moderators.</p>
+                        <div class="sub__tabs">
+                <router-link class="sub__tab" to="/submit">Submit Record</router-link>
+                <router-link class="sub__tab" to="/submit-level">Submit Level</router-link>
+            </div>
 
             <div class="sub__banner">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
