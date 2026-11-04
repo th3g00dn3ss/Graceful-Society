@@ -192,3 +192,26 @@ textarea.sub__input {
     height: 1px;
     opacity: 0;
 }
+.sub__tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0 0 1.25rem;
+}
+.sub__tab {
+    padding: 0.55rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+.sub__tab:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+}
+.sub__tab.router-link-exact-active {
+    background: #1d5cff;
+    border-color: #1d5cff;
+    color: #fff;
+}
