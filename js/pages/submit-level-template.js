@@ -4,11 +4,6 @@ export default `
             <h1 class="sub__title">Submit Level</h1>
             <p class="sub__subtitle">Suggest a level you have verified for review by list moderators.</p>
 
-            <div class="sub__tabs">
-                <router-link class="sub__tab" to="/submit">Submit Record</router-link>
-                <router-link class="sub__tab" to="/submit-level">Submit Level</router-link>
-            </div>
-
             <div class="sub__card sub__done" v-if="!configured">
                 <h2>Level submissions are not open yet</h2>
                 <p>Please check back soon, or contact the list staff on Discord.</p>
