@@ -215,3 +215,12 @@ textarea.sub__input {
     border-color: #1d5cff;
     color: #fff;
 }
+/* Sayfa uzun olsa da arka plan altta bitmesin */
+html,
+body {
+    background: #0b0d12;
+}
+.sub {
+    height: auto !important;
+    overflow: visible !important;
+}
