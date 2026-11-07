@@ -112,3 +112,12 @@ header.topbar {
 .topbar__cta:hover {
     background: #3b72ff;
 }
+.topbar__cta--ghost {
+    padding: calc(0.65rem - 1px) calc(1rem - 1px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: transparent;
+    color: #fff;
+}
+.topbar__cta--ghost:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
