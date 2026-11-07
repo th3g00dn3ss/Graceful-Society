@@ -1,5 +1,5 @@
 import { fetchList } from '../content.js';
-import template from './submit-template.js?v=2';
+import template from './submit-template.js?v=3';
 
 // ------------------------------------------------------------------
 // AYARLAR
