@@ -1,7 +1,7 @@
 import Home from './pages/Home.js';
 import List from './pages/List.js';
 import Leaderboard from './pages/Leaderboard.js';
-import Submit from './pages/Submit.js';
+import Submit from './pages/Submit.js?v=2';
 import SubmitLevel from './pages/SubmitLevel.js';
 
 export default [
