@@ -20,6 +20,7 @@
         <link rel="stylesheet" type="text/css" href="css/components/tabs.css" />
         <link rel="stylesheet" type="text/css" href="css/components/topbar.css" />
         <link rel="stylesheet" type="text/css" href="css/pages/submit.css" />
+        <link rel="stylesheet" type="text/css" href="css/theme.css" />
         <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
         <script src="https://unpkg.com/vue-router@4.0.14/dist/vue-router.global.prod.js"></script>
         <script type="module" src="js/main.js"></script>
@@ -49,6 +50,9 @@
                 </nav>
 
                 <div class="topbar__actions">
+                                        <router-link class="topbar__icon" to="/settings" title="Settings">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>
+                    </router-link>
                     </button>
                     <a class="topbar__icon" href="https://discord.gg/BxWZA2MPBf">
                         <img src="assets/discord.svg" alt="Discord Logo" />
