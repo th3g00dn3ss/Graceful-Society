@@ -1,0 +1,205 @@
+/* Varsayılan değerler: ayarlar yüklenmeden önce de site doğru görünsün */
+:root {
+    --accent: #4f8dff;
+    --on-accent: #ffffff;
+    --bg: #0b0d12;
+    --surface: #0a0b0f;
+    --font: 'Lexend Deca', sans-serif;
+}
+
+/* Yazı tipi */
+body,
+body * {
+    font-family: var(--font) !important;
+}
+.lb__num,
+.lb__ppts,
+.lb__prank,
+.lb__lrank,
+.lb__lpts,
+.lb__watch,
+.lb__colhead small,
+.ll__rank,
+.lv__value,
+.rp__count,
+.rp__percent,
+.sub__input,
+.sub__hint,
+.sub__count {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+}
+
+/* Arka plan ve paneller */
+html,
+body,
+.page-home,
+.lb,
+.sub {
+    background: var(--bg) !important;
+}
+.lv__header,
+.lv__video,
+.lv__stats,
+.lv__records,
+.ll,
+.ll__search,
+.ll__collapse,
+.ll__open,
+.rp__panel,
+.lb__side,
+.sub__card,
+.sub__rules {
+    background: var(--surface) !important;
+}
+header.topbar,
+.sub__input {
+    background: color-mix(in srgb, var(--surface) 65%, #000) !important;
+}
+
+/* Vurgu rengi: yazılar */
+.lb__lrank,
+.lb__lpts,
+.lb__ppts,
+.lb__watch,
+.lb__num--accent,
+.ll__rank,
+.lv__value--accent,
+.rp__percent,
+.lv__records a,
+.rp__credit a,
+.sub__link,
+.sub__banner strong,
+.sub__banner svg,
+.topbar__link svg,
+.topbar__badge,
+.rp__toggle {
+    color: var(--accent) !important;
+}
+.rp__who a:hover {
+    color: var(--accent) !important;
+}
+
+/* Vurgu rengi: seçili satırlar, çerçeveler, rozetler */
+.lb__player.active,
+.ll__item.active {
+    background: color-mix(in srgb, var(--accent) 14%, transparent) !important;
+    border-left-color: var(--accent) !important;
+}
+.topbar__link.router-link-exact-active {
+    background: color-mix(in srgb, var(--accent) 12%, transparent) !important;
+}
+.home-hero__tagline {
+    border-left-color: var(--accent) !important;
+}
+.sub__input:focus {
+    border-color: var(--accent) !important;
+}
+.sub__banner {
+    border-color: color-mix(in srgb, var(--accent) 30%, transparent) !important;
+    background: color-mix(in srgb, var(--accent) 10%, transparent) !important;
+}
+.topbar__badge {
+    border-color: color-mix(in srgb, var(--accent) 40%, transparent) !important;
+    background: color-mix(in srgb, var(--accent) 12%, transparent) !important;
+}
+.rp__toggle {
+    border-color: color-mix(in srgb, var(--accent) 50%, transparent) !important;
+    background: color-mix(in srgb, var(--accent) 18%, transparent) !important;
+}
+.sub__check input {
+    accent-color: var(--accent);
+}
+
+/* Vurgu rengi: ana butonlar */
+.topbar__cta:not(.topbar__cta--ghost),
+.sub__submit,
+.home-btn--primary {
+    background: var(--accent) !important;
+    border-color: var(--accent) !important;
+    color: var(--on-accent) !important;
+}
+.topbar__cta:not(.topbar__cta--ghost):hover,
+.sub__submit:hover:not(:disabled),
+.home-btn--primary:hover {
+    background: color-mix(in srgb, var(--accent) 85%, #fff) !important;
+}
+
+/* Üst bar simgeleri */
+.topbar__icon {
+    color: #fff;
+}
+
+/* Ayarlar sayfası */
+.st__presets {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.6rem;
+}
+.st__preset {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: transparent;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+.st__preset:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+.st__preset.active {
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+}
+.st__swatch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border: 2px solid;
+    border-radius: 50%;
+}
+.st__swatch i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.st__colors {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.st__colorbox {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+.st__color {
+    width: 100%;
+    height: 42px;
+    padding: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+}
+.st__reset {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+    background: transparent;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+.st__reset:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
