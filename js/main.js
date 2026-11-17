@@ -1,4 +1,8 @@
 import routes from './routes.js';
+import { loadSettings, applySettings } from './theme.js';
+
+// Ziyaretçinin kayıtlı görünüm ayarlarını uygula
+applySettings(loadSettings());
 
 // Site her zaman koyu temada çalışır
 export const store = Vue.reactive({
