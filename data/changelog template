@@ -1,0 +1,11 @@
+[
+    {
+        "date": "2026-11-17",
+        "changes": [
+            { "type": "added", "level": "DreamWQ", "to": 1 },
+            { "type": "moved", "level": "VsYnC", "from": 4, "to": 2, "note": "Moved after a review." },
+            { "type": "removed", "level": "OldLevel", "from": 12 },
+            { "type": "note", "note": "Records for the top 10 were re-checked." }
+        ]
+    }
+]
