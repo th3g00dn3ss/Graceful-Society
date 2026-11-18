@@ -5,25 +5,50 @@
     <title>Logging in...</title>
     <style>
         body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0b0d12; color: #fff; font-family: system-ui, sans-serif; }
+        main { max-width: 520px; padding: 2rem; text-align: center; }
+        a { color: #4f8dff; font-weight: 700; }
+        code { display: block; margin: 1rem 0; padding: 0.75rem; border-radius: 8px; background: #07080b; color: #ff9a9a; word-break: break-word; }
     </style>
 </head>
 <body>
-    <p id="msg">Logging in with Discord...</p>
+    <main>
+        <p id="msg">Logging in with Discord...</p>
+        <code id="detail" hidden></code>
+        <a id="back" href="./#/profile" hidden>Continue to the site</a>
+    </main>
     <script>
         (async function () {
             var msg = document.getElementById('msg');
+            var detail = document.getElementById('detail');
+            var back = document.getElementById('back');
+
+            function fail(title, info) {
+                msg.textContent = title;
+                detail.textContent = info;
+                detail.hidden = false;
+                back.hidden = false;
+            }
+
             var params = new URLSearchParams(location.hash.slice(1));
             var token = params.get('access_token');
             var state = params.get('state');
+            var error = params.get('error');
             var expected = sessionStorage.getItem('gs-oauth-state');
             sessionStorage.removeItem('gs-oauth-state');
 
             // Adres çubuğundaki token'ı hemen sil
             history.replaceState(null, '', location.pathname);
 
-            if (!token || !state || state !== expected) {
-                msg.textContent = 'Login failed. Redirecting...';
-                setTimeout(function () { location.replace('./#/profile'); }, 1500);
+            if (error) {
+                fail('Discord returned an error.', error + ': ' + (params.get('error_description') || ''));
+                return;
+            }
+            if (!token) {
+                fail('No login token received.', 'The address had no access_token. Hash was: "' + location.hash + '". If this page was opened directly, start from the Profile page instead.');
+                return;
+            }
+            if (!state || state !== expected) {
+                fail('Login check failed (state mismatch).', 'Received state: ' + state + ' / expected: ' + expected + '. Try again from the Profile page in the same tab.');
                 return;
             }
 
@@ -31,9 +56,8 @@
                 var res = await fetch('https://discord.com/api/users/@me', {
                     headers: { Authorization: 'Bearer ' + token },
                 });
-                if (!res.ok) throw new Error('HTTP ' + res.status);
+                if (!res.ok) throw new Error('Discord answered HTTP ' + res.status);
                 var u = await res.json();
-                // Token saklanmaz, sadece görünen profil bilgisi kaydedilir
                 localStorage.setItem('gs-user', JSON.stringify({
                     id: u.id,
                     name: u.global_name || u.username,
@@ -42,7 +66,8 @@
                 }));
             } catch (e) {
                 console.error('Discord login failed.', e);
-                msg.textContent = 'Could not read your Discord profile.';
+                fail('Could not read your Discord profile.', String(e) + ' (An ad blocker or privacy extension can block this request.)');
+                return;
             }
             location.replace('./#/profile');
         })();
