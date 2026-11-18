@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Logging in...</title>
+    <style>
+        body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0b0d12; color: #fff; font-family: system-ui, sans-serif; }
+    </style>
+</head>
+<body>
+    <p id="msg">Logging in with Discord...</p>
+    <script>
+        (async function () {
+            var msg = document.getElementById('msg');
+            var params = new URLSearchParams(location.hash.slice(1));
+            var token = params.get('access_token');
+            var state = params.get('state');
+            var expected = sessionStorage.getItem('gs-oauth-state');
+            sessionStorage.removeItem('gs-oauth-state');
+
+            // Adres çubuğundaki token'ı hemen sil
+            history.replaceState(null, '', location.pathname);
+
+            if (!token || !state || state !== expected) {
+                msg.textContent = 'Login failed. Redirecting...';
+                setTimeout(function () { location.replace('./#/profile'); }, 1500);
+                return;
+            }
+
+            try {
+                var res = await fetch('https://discord.com/api/users/@me', {
+                    headers: { Authorization: 'Bearer ' + token },
+                });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                var u = await res.json();
+                // Token saklanmaz, sadece görünen profil bilgisi kaydedilir
+                localStorage.setItem('gs-user', JSON.stringify({
+                    id: u.id,
+                    name: u.global_name || u.username,
+                    username: u.username,
+                    avatar: u.avatar,
+                }));
+            } catch (e) {
+                console.error('Discord login failed.', e);
+                msg.textContent = 'Could not read your Discord profile.';
+            }
+            location.replace('./#/profile');
+        })();
+    </script>
+</body>
+</html>
