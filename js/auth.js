@@ -1,6 +1,6 @@
 // Discord Developer Portal > uygulaman > OAuth2 > Client ID
 // Boş bırakırsan Discord girişi görünmez, profil sayfası yine çalışır.
-const DISCORD_CLIENT_ID = '';
+const DISCORD_CLIENT_ID = '1572561960342650961';
 
 const USER_KEY = 'gs-user';
 const PLAYER_KEY = 'gs-player';
