@@ -54,6 +54,11 @@
                 </nav>
 
                 <div class="topbar__actions">
+                                        <router-link class="topbar__user" to="/profile">
+                        <img v-if="store.user" class="topbar__avatar" :src="store.avatar" alt="" />
+                        <svg v-else viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <span>{{ store.user ? store.user.name : 'Profile' }}</span>
+                    </router-link>
                                         <router-link class="topbar__icon" to="/settings" title="Settings">
                         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>
                     </router-link>
