@@ -301,3 +301,95 @@ header.topbar,
     text-align: center;
     color: rgba(255, 255, 255, 0.4);
 }
+/* Profil ve hesap */
+.topbar__user {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+.topbar__user:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+.topbar__avatar,
+.pf__avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.pf__avatar {
+    width: 44px;
+    height: 44px;
+}
+.sub__inner.pf {
+    max-width: 1000px;
+}
+.pf__account {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    background: var(--surface);
+}
+.pf__account small {
+    display: block;
+    color: rgba(255, 255, 255, 0.55);
+}
+.pf__btn {
+    width: auto !important;
+    margin: 0 0 0 auto !important;
+    padding: 0.6rem 1rem !important;
+}
+.pf__h {
+    margin: 0 0 0.4rem;
+}
+.pf__hint {
+    margin: 0 0 1rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+.pf__suggest {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    font-size: 0.88rem;
+}
+.pf__results {
+    margin: 0.75rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+.pf__result {
+    display: grid;
+    grid-template-columns: 3.2rem 1fr auto;
+    align-items: center;
+    width: 100%;
+    padding: 0.7rem 0.5rem;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: transparent;
+    color: #fff;
+    text-align: left;
+    cursor: pointer;
+}
+.pf__result:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+.pf__change {
+    margin-top: 2rem;
+}
